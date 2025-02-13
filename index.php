@@ -11,8 +11,8 @@
     <nav class="flex justify-between items-center h-20 w-screen ps-10 pe-10 fixed" style="background-image: url('./assets/imgs/navBackground.png'); background-position-y: -650px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);">
         <h1 class="text-white text-6xl font-[Times]">Kaer Morhen</h1>
         <div>
-            <button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> MATRICULE-SE </button>
-            <button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> PORTAL DO ALUNO </button>
+            <a href=""><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> MATRICULE-SE </button></a>
+            <a href=""><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> PORTAL DO ALUNO </button></a>
         </div>
     </nav>
     <main class="ms-[12vw] me-[12vw] pt-24">

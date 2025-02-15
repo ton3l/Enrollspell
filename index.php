@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>Enrollspell</title>
+    
 </head>
 <body>
-    <nav class="flex justify-between items-center h-20 w-screen ps-10 pe-10 fixed bg-[url(./src/assets/imgs/formBackground.png)]" style="background-position-y: -650px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);">
+    <!-- <img src="./src/assets/imgs/formBackground.png" class="absolute z-[-1] top-0 left-0"> -->
+    <nav class="flex justify-between items-center h-20 w-screen ps-10 pe-10 fixed top-0 left-0 bg-[url(./src/assets/imgs/navBackground.png)] " style="background-position-y: -650px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);">
         <h1 class="text-white text-6xl font-[Times]">Kaer Morhen</h1>
         <div>
             <button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> MATRICULE-SE </button>
-            <button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> PORTAL DO ALUNO </button>
+            <a href="./src/views/studentSpace.html"><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> PORTAL DO ALUNO </button></a>
         </div>
     </nav>
-    <main class="ms-[12vw] me-[12vw] pt-24">
+    <main class="ps-[12vw] pe-[12vw] mt-24 bg-white>">
 
         <article>
             <img src="./src/assets/imgs/Icon1(Traced).png" alt="" class="w-sm float-right ms-12">

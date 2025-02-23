@@ -4,7 +4,7 @@
     $DAL = dbConnection::getInstance();
 
     $stmt = $DAL->query("SELECT * FROM aluno WHERE matricula = " . $_GET['matricula']);
-    $verify = $stmt->fetch();
+    $user = $stmt->fetch();
 ?>
 
 
@@ -28,36 +28,35 @@
         <header class="flex gap-8">
             <img src="../assets/imgs/simple-line-icons_user.png" alt="" class="h-32">
             <div class="flex flex-col h-32 justify-center">
-                <p class="text-3xl text-white"> Kleyton Araujo Dantas </p>
-                <p class="text-3xl text-white">19 anos</p>
+                <p class="text-3xl text-white"> <?php echo $user['nome'] ?> </p>
             </div>
         </header>
         <section class="w-full pt-8 ps-44 pe-32 grid grid-cols-2 gap-y-8 gap-x-16">
             <p class="text-white text-start ">
                 <span class="font-medium">Teste das ervas:</span> <br>
-                Pendente
+                <?php echo $user['teste'] ?>
             </p>
             <p class="text-white text-start">
                 <span class="font-medium">CPF:</span> <br>
-                123.456.789-10
+                <?php echo $user['cpf'] ?>
             </p>
 
             <p class="text-white text-start">
                 <span class="font-medium">Matrícula:</span> <br>
-                20250840001
+                <?php echo $user['matricula'] ?>
             </p>
             <p class="text-white text-start">
                 <span class="font-medium">Período:</span> <br>
-                3º
+                <?php echo $user['periodo'] ?>º
             </p>
             
             <p class="text-white text-start">
                 <span class="font-medium">Nível de combate:</span> <br>
-                Médio
+                <?php echo $user['combate'] ?>
             </p>
             <p class="text-white text-start">
                 <span class="font-medium">Estado médico:</span> <br>
-                Saudável
+                <?php echo $user['saude'] ?>
             </p>
         </section>
     </main>

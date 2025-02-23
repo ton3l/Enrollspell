@@ -1,7 +1,10 @@
 <?php
     require_once __DIR__ . '\..\repository\dbConnection.php';
     
-    $DAL = dbConnection::getInstance(); 
+    $DAL = dbConnection::getInstance();
+
+    $stmt = $DAL->query("SELECT * FROM aluno WHERE matricula = " . $_GET['matricula']);
+    $verify = $stmt->fetch();
 ?>
 
 

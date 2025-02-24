@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Portal do estudante</title>
+</head>
+<body class="flex h-screen items-center justify-center bg-[url(../assets/imgs/bgLogin.png)] bg-right-bottom">
+    
+    <form class="bg-black/50 w-85 h-100 flex flex-col items-center pt-8 rounded-md" action="../API/login.php" method="post">
+        <h1 class="text-[48px] text-white font-[Times] mb-4">Login</h1>
+        <label class="text-white">Matrícula</label>
+        <input type="text" name="matricula" placeholder="" class="mb-4 p-2 mt-1 bg-white w-75 rounded-sm">
+        <label class="text-white">Senha</label>
+        <input type="password" name="senha" placeholder="" class="mb-4 p-2 mt-1 bg-white w-75 rounded-sm">
+        <button type="submit" class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer">Confirmar</button>
+    </form>
+    
+</body>
+</html>

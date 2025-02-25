@@ -7,7 +7,7 @@
 
         static function getInstance(){
             if(self::$DAL == NULL){
-                self::$DAL = new PDO('mysql:host=127.0.0.1;port=3306;dbname=enrollspell', 'root', '1234');
+                self::$DAL = new PDO('mysql:host=localhost;port=3306;dbname=ENROLLSPELL', 'root', '');
                 return self::$DAL;
             }
             else{

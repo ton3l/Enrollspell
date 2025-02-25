@@ -6,12 +6,12 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>Matricula</title>
 </head>
-<body class='bg-[url(../src/assets/imgs/formBackground.png)] bg-center bg-cover bg-right-top'>
+<body class='bg-[url(../assets/imgs/formBackground.png)] bg-center bg-cover bg-right-top'>
     <aside class="flex flex-col w-1/4 h-screen bg-zinc-800/75 justify-center items-center">
 
         <h2 class="text-[48px] text-white font-[Times] mb-2" id="title">Matricule-se</h2>
 
-        <form action="" method="POST" class="flex flex-col"  id="form">
+        <form action="../API/matricula.php" method="POST" class="flex flex-col" id="form">
             <label for="name" class="text-white">Nome completo</label>
             <input type="text" id="name" name="name" placeholder="Nome" class="mb-4 p-2 mt-1 bg-white w-75 rounded-md">
 

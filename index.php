@@ -13,7 +13,7 @@
         <h1 class="text-white text-6xl font-[Times]">Kaer Morhen</h1>
         <div>
             <a href=""><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> MATRICULE-SE </button></a>
-            <a href=""><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> PORTAL DO ALUNO </button></a>
+            <a href="./src/views/login.html"><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> LOGIN </button></a>
         </div>
     </nav>
     <main class="ps-[12vw] pe-[12vw] mt-24 bg-white>">

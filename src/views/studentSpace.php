@@ -20,13 +20,14 @@
 
     <aside class="fixed left-0 top-0 h-screen w-60 bg-black/85 text-white flex flex-col justify-center items-center">
         <ul class="w-full">
-            <li class="border-b border-white w-full text-center hover:bg-[#333333] cursor-pointer">Boletins</li>
-            <li class="w-full text-center hover:bg-[#333333] cursor-pointer">Calendário</li>
+        <a href="./bulletin.php?matricula=<?php echo $_GET['matricula'] ?>"><li class="border-b border-white w-full text-center hover:bg-[#333333] cursor-pointer">Boletins</li></a>
         </ul>
+        <button class="absolute bottom-4 cursor-pointer">
+            <a href="../../index.php"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="16" stroke-dashoffset="16" d="M4.5 21.5h15"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="16;0"/></path><path stroke-dasharray="16" stroke-dashoffset="16" d="M4.5 21.5v-13.5M19.5 21.5v-13.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.2s" dur="0.2s" values="16;0"/></path><path stroke-dasharray="28" stroke-dashoffset="28" d="M2 10l10 -8l10 8"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s" values="28;0"/></path><path stroke-dasharray="24" stroke-dashoffset="24" d="M9.5 21.5v-9h5v9"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.4s" values="24;0"/></path></g></svg></a>
+        </button>
     </aside>
     <main class="bg-black/86 h-screen w-200 flex flex-col items-center justify-center">
         <header class="flex gap-8">
-            <img src="../assets/imgs/simple-line-icons_user.png" alt="" class="h-32">
             <div class="flex flex-col h-32 justify-center">
                 <p class="text-3xl text-white"> <?php echo $user['nome'] ?> </p>
             </div>

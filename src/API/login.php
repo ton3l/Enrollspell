@@ -10,11 +10,11 @@
     $verify = $stmt->fetch();
     
     if(isset($verify['matricula']) && $matricula == $verify['matricula'] && $senha == $verify['senha']){
-        header("Location: http://127.0.0.1/Enrollspell/src/views/studentSpace.php?matricula=$matricula"); 
+        header("Location: ../views/studentSpace.php?matricula=$matricula"); 
         exit();
     }
     else{
-        header("Location: http://127.0.0.1/Enrollspell/src/views/login.html"); 
+        header("Location: ../views/login.html"); 
         exit();
     }
 ?>

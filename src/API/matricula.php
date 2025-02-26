@@ -31,6 +31,9 @@
     $stmt = $DAL->prepare("INSERT INTO aluno (matricula, nome, cpf, telefone, senha, teste, periodo, combate, saude ) VALUES (?, ?, ?, ?, ?,?,?,?,?)");
     $stmt->execute([$matricula, $nome, $cpf, $tel, $senha, $teste, $periodo, $combate, $saude]);
 
-    header("Location: ../views/studentSpace.php?matricula=$matricula");
+    session_start();
+    $_SESSION['matricula'] = $matricula;
+    
+    header("Location: ../views/studentSpace.php");
     exit();
 ?>

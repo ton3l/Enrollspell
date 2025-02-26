@@ -12,7 +12,6 @@
     
 </head>
 <body>
-    <!-- <img src="./src/assets/imgs/formBackground.png" class="absolute z-[-1] top-0 left-0"> -->
     <nav class="flex justify-between items-center h-20 w-screen ps-10 pe-10 fixed top-0 left-0 bg-[url(./src/assets/imgs/formBackground.png)]" style="background-position-y: -650px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);">
         <h1 class="text-white text-6xl font-[Times]">Kaer Morhen</h1>
         <div>

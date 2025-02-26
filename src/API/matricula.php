@@ -31,6 +31,6 @@
     $stmt = $DAL->prepare("INSERT INTO aluno (matricula, nome, cpf, telefone, senha, teste, periodo, combate, saude ) VALUES (?, ?, ?, ?, ?,?,?,?,?)");
     $stmt->execute([$matricula, $nome, $cpf, $tel, $senha, $teste, $periodo, $combate, $saude]);
 
-    header("Location: http://127.0.0.1/Enrollspell/src/views/studentSpace.php?matricula=$matricula");
+    header("Location: ../views/studentSpace.php?matricula=$matricula");
     exit();
 ?>

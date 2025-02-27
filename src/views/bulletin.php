@@ -81,7 +81,7 @@
             </div>
         </header>
         <section class="w-full pt-8  gap-y-8 gap-x-16">
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto overflow-y-auto h-100">
                 <table class="w-full text-sm text-left rtl:text-right text-neutral-500 dark:text-neutral-400">
                     <thead class="text-xs text-neutral-700 uppercase bg-neutral-50 dark:bg-neutral-700 dark:text-neutral-400">
                         <tr>

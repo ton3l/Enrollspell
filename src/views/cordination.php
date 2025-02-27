@@ -9,7 +9,16 @@
     
     $DAL = dbConnection::getInstance();
 
-    $stmt = $DAL->query("SELECT * FROM aluno WHERE nome IS NOT NULL ORDER BY nome ");
+    $getStudents = $DAL->query("SELECT * FROM aluno WHERE nome IS NOT NULL ORDER BY nome ");
+
+    $getGrade = $DAL->query("
+        SELECT disciplina.nome, nota.nota, nota.periodo, aluno.matricula, aluno.nome as aluno FROM nota 
+        JOIN disciplina ON nota.disciplina = disciplina.id
+        JOIN aluno ON nota.aluno = aluno.matricula
+        ORDER BY  aluno.nome ASC, nota.periodo ASC, disciplina.nome ASC
+    ");
+
+    $getDisciplines = $DAL->query("SELECT nome FROM disciplina ORDER BY nome ASC ");
     
 ?>
 
@@ -34,7 +43,8 @@
         </div>
     </nav>
     <main class="ps-[8vw] pe-[8vw] mt-22 bg-white>">
-    <div class="relative overflow-x-auto h-128 w-full overflow-y-auto shadow-md sm:rounded-lg z-0 mb-1">
+        
+    <div class="relative overflow-x-auto h-128 overflow-y-auto shadow-md sm:rounded-lg z-0 mb-1">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
@@ -69,7 +79,7 @@
             </thead>
             <tbody>
                 <?php
-                    while($aluno = $stmt->fetch()){
+                    while($aluno = $getStudents->fetch()){
                         $nome = $aluno['nome'];
                         $matricula = $aluno['matricula'];
                         $periodo = $aluno['periodo'];
@@ -117,7 +127,7 @@
                                     $saude
                                 </td>
                                 <td class='px-6 py-4'>
-                                    <a href='#' class='font-medium text-blue-600 hover:underline' data-bs-toggle='modal' data-bs-target='#exampleModal' data-default=$jsonData>Edit</a>
+                                    <a href='#' class='font-medium text-blue-600 hover:underline' data-bs-toggle='modal' data-bs-target='#studentModal' data-default=$jsonData>Edit</a>
                                 </td>
                             </tr>
                         ";
@@ -126,7 +136,7 @@
             </tbody>
         </table>
     </div>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto h-128 w-full overflow-y shadow-md sm:rounded-lg mb-2">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
@@ -140,68 +150,85 @@
                         Período
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Aulno
+                        Aluno
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Actions
+                        Matrícula
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Actions 
+
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd:bg-white even:bg-gray-50 border-b border-gray-200">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Apple MacBook Pro 17"
-                    </th>
-                    <td class="px-6 py-4">
-                        Silver
-                    </td>
-                    <td class="px-6 py-4">
-                        Laptop
-                    </td>
-                    <td class="px-6 py-4">
-                        $2999
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                    </td>
-                </tr>
-            </tbody>
+            <?php
+                    while($notas = $getGrade->fetch()){
+                        $nomeDisciplina = $notas['nome'];
+                        $nota = $notas['nota'];
+                        $periodo = $notas['periodo'];
+                        $matricula = $notas['matricula'];
+                        $nomeAluno = $notas['aluno'];
+                        
+                        // Convertendo array para JSON
+                        $jsonData = json_encode($dados);
+                        
+                        echo "
+                            <tr class='odd:bg-white even:bg-gray-50 border-b border-gray-200'>
+                                <th scope='row' class='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'>
+                                    $nomeDisciplina
+                                </th>
+                                <td class='px-6 py-4'>
+                                    $nota
+                                </td>
+                                <td class='px-6 py-4'>
+                                    $periodo
+                                </td>
+                                <td class='px-6 py-4'>
+                                    $nomeAluno
+                                </td>
+                                <td class='px-2 py-4'>
+                                    $matricula
+                                </td>
+                                
+                                <td class='px-6 py-4'>
+                                    <a href='#' class='font-medium text-blue-600 hover:underline' data-bs-toggle='modal' data-bs-target='#gradeModal' data-default=$nota>Edit</a>
+                                </td>
+                            </tr>
+                        ";
+                    }
+                ?>
         </table>
     </div>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto h-128 w-full overflow-y shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Id
-                    </th>
-                    <th scope="col" class="px-6 py-3">
                         Disciplina
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Action
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd:bg-white even:bg-gray-50 border-b border-gray-200">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Apple MacBook Pro 17"
-                    </th>
-                    <td class="px-6 py-4">
-                        Silver
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                    </td>
-                </tr>
+            <?php
+                    while($disciplina = $getDisciplines->fetch()){
+
+                        echo "
+                            <tr class='odd:bg-white even:bg-gray-50 border-b border-gray-200'>
+                                <th scope='row' class='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'>
+                                    $disciplina[0]
+                                </th>
+                            </tr>
+                        ";
+                    }
+                ?>
             </tbody>
         </table>
     </div>
     </main>
 
     <!-- Modal -->
-    <section class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <section class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
@@ -266,9 +293,26 @@
             </div>
         </div>
     </section>
+    <section class="modal fade" id="gradeModal" tabindex="-1" aria-labelledby="gradeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="formAlunos">Editar informações</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="w-full mx-auto flex items-center flex-col ">
+                    <label for="number-input" class="block mb-2 text-md font-medium text-gray-900">Atualize a nota:</label>
+                    <input type="number" id="grade" min="0" max="100" class="border-black text-black bg-gray-100 rounded-sm w-24 h-12 text-center" name="" id="">
+                    <button type="submit" class="mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-3.5 py-2.5 text-center">Concluir</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
-<div class="relative z-0 w-full mb-5 group">
+<!-- <div class="relative z-0 w-full mb-5 group">
                         <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nota</label>
                         <div class="border-b-2 border-gray-300 mt-1"></div> 
@@ -306,4 +350,4 @@
                             <label for="floating_company" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company (Ex. Google)</label>
                             <div class="border-b-2 border-gray-300 mt-1"></div>
                         </div>
-                    </div>
+                    </div> -->

@@ -11,12 +11,40 @@
 
     $getStudents = $DAL->query("SELECT * FROM aluno WHERE nome IS NOT NULL ORDER BY nome ");
 
+    $getFirstStudent = $DAL->query("SELECT * FROM aluno WHERE nome IS NOT NULL ORDER BY nome LIMIT 1");
+    $firstStudent = $getFirstStudent->fetch();
+
     $getGrade = $DAL->query("
         SELECT disciplina.nome, nota.nota, nota.periodo, aluno.matricula, aluno.nome as aluno FROM nota 
         JOIN disciplina ON nota.disciplina = disciplina.id
         JOIN aluno ON nota.aluno = aluno.matricula
         ORDER BY  aluno.nome ASC, nota.periodo ASC, disciplina.nome ASC
     ");
+
+    if(isset($_GET['aluno']) && $_GET['aluno'] != null){
+        $search = $_GET['aluno'];
+
+        $getGrade = $DAL->query("
+            SELECT disciplina.nome, nota.nota, nota.periodo, aluno.matricula, aluno.nome as aluno FROM nota 
+            JOIN disciplina ON nota.disciplina = disciplina.id
+            JOIN aluno ON nota.aluno = aluno.matricula
+            WHERE aluno.matricula = $search
+            ORDER BY  aluno.nome ASC, nota.periodo ASC, disciplina.nome ASC
+    ");
+    }
+    else{
+        $getFirstStudent = $DAL->query("SELECT * FROM aluno WHERE nome IS NOT NULL ORDER BY nome LIMIT 1");
+        $firstStudent = $getFirstStudent->fetch();
+        $firstStudentMatricula = $firstStudent['matricula'];
+
+        $getGrade = $DAL->query("
+            SELECT disciplina.nome, nota.nota, nota.periodo, aluno.matricula, aluno.nome as aluno FROM nota 
+            JOIN disciplina ON nota.disciplina = disciplina.id
+            JOIN aluno ON nota.aluno = aluno.matricula
+            WHERE aluno.matricula = $firstStudentMatricula
+            ORDER BY  aluno.nome ASC, nota.periodo ASC, disciplina.nome ASC
+    ");
+    }
 
     $getDisciplines = $DAL->query("SELECT nome FROM disciplina ORDER BY nome ASC ");
     

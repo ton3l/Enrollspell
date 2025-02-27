@@ -13,7 +13,7 @@
         if($matricula == 'cordenação' && $senha == 'cordenação'){
             $_SESSION['cordenation'] = 'válida';
             
-            header("Location: ../views/cordination.php");
+            header("Location: ../views/cordination.php?aluno=");
             exit();
         }
         session_start();

@@ -6,7 +6,7 @@
     function gerarMatriculaAuto() {
         return date('Ymd') . sprintf('%04d', rand(0, 9999));
     }
-    
+
     $matricula = gerarMatriculaAuto();
 
     $nome    = $_POST['name'];
@@ -28,7 +28,8 @@
         $count = $stmt->fetchColumn();
     }
 
-    $stmt = $DAL->prepare("INSERT INTO aluno (matricula, nome, cpf, telefone, senha, teste, periodo, combate, saude ) VALUES (?, ?, ?, ?, ?,?,?,?,?)");
+    $stmt = $DAL->prepare("INSERT INTO aluno (matricula, nome, cpf, telefone, senha, teste, periodo, combate, saude ) 
+    VALUES (?, ?, ?, ?, ?,?,?,?,?)");
     $stmt->execute([$matricula, $nome, $cpf, $tel, $senha, $teste, $periodo, $combate, $saude]);
 
     session_start();

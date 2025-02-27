@@ -27,7 +27,6 @@
     $user = $stmt->fetch();
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
     <head>

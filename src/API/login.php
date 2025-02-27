@@ -11,6 +11,8 @@
     
     if(isset($verify['matricula']) && $matricula == $verify['matricula'] && $senha == $verify['senha']){
         if($matricula == 'cordenação' && $senha == 'cordenação'){
+            $_SESSION['cordenation'] = 'válida';
+            
             header("Location: ../views/cordination.php");
             exit();
         }

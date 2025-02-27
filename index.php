@@ -15,7 +15,7 @@
     <nav class="flex justify-between items-center h-20 w-screen ps-10 pe-10 fixed top-0 left-0 bg-[url(./src/assets/imgs/formBackground.png)]" style="background-position-y: -650px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);">
         <h1 class="text-white text-6xl font-[Times]">Kaer Morhen</h1>
         <div>
-            <a href="./src/views/matricula.html"><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> MATRICULE-SE </button></a>
+            <a href="./src/views/registration.html"><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> MATRICULE-SE </button></a>
             <a href="./src/views/login.html"><button class="hover:bg-[#6C6C6CBB] bg-[#6C6C6C70] text-white font-[Times] ps-5 pe-5 pb-1 pt-1 rounded-sm cursor-pointer"> LOGIN </button></a>
         </div>
     </nav>

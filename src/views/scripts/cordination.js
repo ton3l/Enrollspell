@@ -1,12 +1,24 @@
-const exampleModal = document.getElementById('exampleModal');
+document.addEventListener('DOMContentLoaded', function () {
+    let exampleModal = document.getElementById('exampleModal');
 
-exampleModal.addEventListener('show.bs.modal', (event) => {
-    // Botão que ativou o modal
-    var button = event.relatedTarget;
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+
+        let button = event.relatedTarget;
+
+        let dados = JSON.parse(button.getAttribute('data-default'));
     
-    // Extrair o atributo personalizado do botão
-    var customAttribute = button.getAttribute('data-custom-registration');
-    
-    // Fazer algo com o atributo
-    var modalTitle = exampleModal.querySelector('.modal-title');
+        document.querySelector(`#option-${dados['saude']}`).selected = true;
+        document.querySelector(`#option-${dados['combate']}`).selected = true;
+        document.querySelector(`#option-${dados['teste']}`).selected = true;
+        document.querySelector(`#option${dados['periodo']}`).selected = true;
+
+        let inputMatricula = document.getElementById('matricula');
+
+        if (inputMatricula) {
+            inputMatricula.value = dados['matricula'];
+        } 
+        else {
+            console.error('Campo de matrícula não encontrado!');
+        }
+    });
 });
